@@ -1,13 +1,13 @@
 require('app-module-path').addPath(process.env.baseDir);
 const ContractBuilder = require('core/contracts/ethereum/EthContractBuilder');
-const ContractData = require('core/contracts/ethereum/token/ContractData.js');
+const ContractData = require('core/contracts/ethereum/token/ContractData');
 const BigNumberHelper = require('core/helpers/BigNumberHelper');
 class TokenLib{
     constructor(app){
         this.app = app;
         this.validator=app.validator;
         this.logger = app.logger;
-        this.eth = app.ethLib;
+        this.ethLib = app.ethService.ethLib;
         this.contractBuilder = new ContractBuilder(this);
     }
     init(){
