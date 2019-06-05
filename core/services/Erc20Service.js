@@ -13,6 +13,7 @@ class Erc20Service{
         this.ethLib = app.ethService.ethLib;
         this.eventManager = app.eventManager;
         this.blockNumberCacher = new BlockNumberCacher(app);
+        this.erc20Lib = new Erc20Lib(app);
     }
     init(){
         return new Promise(async(resolve,reject)=>{
@@ -21,7 +22,7 @@ class Erc20Service{
                 this.wsProvider = this.app.wsProvider;
                 this.provider = this.ethService.provider;
                 this.admin = this.ethService.admin;
-                this.erc20Lib = new Erc20Lib(this);
+                this.erc20Lib = await this.erc20Lib.init();
                 return resolve(this);
             }catch (e) {
                 return reject(e);
