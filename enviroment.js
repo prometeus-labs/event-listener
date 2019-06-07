@@ -6,8 +6,8 @@ if(!process.env.NODE_ENV){
 process.env.baseDir = '/home/max/prometeus/';
 process.env.LAST_BLOCK_FILE='./blocknumber.txt';
 process.env.SERVER = "http://127.0.0.1";
-process.env.node_address_http='https://ropsten.infura.io/v3/d67bf7aef71d46d0b519e7941174ef9f';
-process.env.node_address_ws='wss://ropsten.infura.io/ws';
+process.env.node_address_http='http://127.0.0.1:5545';
+process.env.node_address_ws='ws://127.0.0.1:6545';
 process.env.MONGODB_URL ='127.0.0.1:27017';
 process.env.MONGODB_DB = 'mydb';
 process.env.logDir = '.';

@@ -11,7 +11,7 @@ const schemaAttr =
 	blockNumber:Number,
 	txHash:String,
     reported: Number
-}
+};
 
 const indexFields = {txHash:1};
 const indexOptions ={unique:true};
