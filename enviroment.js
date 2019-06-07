@@ -3,7 +3,7 @@ if(!process.env.NODE_ENV){
     console.error("NODE ENVIROMENT is not defined. Create .env file at root of the project");
     process.exit(1);
 }
-process.env.baseDir = '/home/max/prometeus/';
+process.env.baseDir = '.';
 process.env.LAST_BLOCK_FILE='./blocknumber.txt';
 process.env.SERVER = "http://127.0.0.1";
 process.env.node_address_http='http://127.0.0.1:5545';
