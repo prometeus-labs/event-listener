@@ -12,5 +12,5 @@ process.env.MONGODB_URL ='127.0.0.1:27017';
 process.env.MONGODB_DB = 'mydb';
 process.env.logDir = '.';
 process.env.fileMode='0666';
-process.env.PORT=8632;
+process.env.PORT=3000;
 process.env.ADMIN_ADDRESS="0x2c5B73805753165d791a3155b45B8B87F8cCF384";
