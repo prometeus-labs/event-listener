@@ -7,7 +7,7 @@ class TokenLib{
         this.app = app;
         this.validator=app.validator;
         this.logger = app.logger;
-        this.eth = app.ethLib;
+        this.ethLib = app.ethLib;
         this.contractBuilder = new ContractBuilder(this);
     }
     init(){

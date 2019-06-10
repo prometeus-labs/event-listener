@@ -1,0 +1,2 @@
+[31merror[39m: [31mEthService:Connection refused or URL couldn't be resolved: http://95.217.45.242:5545[39m {"data":"{}","timestamp":"2019-06-10 19:12:10"}
+[31merror[39m: [31mEthProxy:Connection refused or URL couldn't be resolved: http://95.217.45.242:5545[39m {"data":"{}","timestamp":"2019-06-10 19:12:10"}

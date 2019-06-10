@@ -1,0 +1,19 @@
+[32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 18:54:41"}
+[32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 18:54:41"}
+[32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 18:58:16"}
+[32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 18:58:16"}
+[32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 19:06:35"}
+[32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 19:06:35"}
+[32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 19:08:04"}
+[32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 19:08:04"}
+[32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 19:09:42"}
+[32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 19:09:42"}
+[32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 19:12:09"}
+[31merror[39m: [31mEthService:Connection refused or URL couldn't be resolved: http://95.217.45.242:5545[39m {"data":"{}","timestamp":"2019-06-10 19:12:10"}
+[31merror[39m: [31mEthProxy:Connection refused or URL couldn't be resolved: http://95.217.45.242:5545[39m {"data":"{}","timestamp":"2019-06-10 19:12:10"}
+[32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 19:13:26"}
+[32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 19:13:26"}
+[32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 19:15:30"}
+[32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 19:15:30"}
+[32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 19:15:59"}
+[32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 19:16:00"}

@@ -3,9 +3,9 @@ class ContractBuilder{
 	constructor(app){
 		this.app = app;
 		this.validator = app.validator;
-		this.eth=app.eth;
-		this.httpProvider = this.eth.httpProvider;
-		this.wsProvider = this.eth.wsProvider;
+		this.ethLib=app.ethLib;
+		this.httpProvider = this.ethLib.httpProvider;
+		this.wsProvider = this.ethLib.wsProvider;
 		this.providers = {};
 		this.providers['http'] = this.httpProvider;
 		this.providers['ws'] = this.wsProvider;
