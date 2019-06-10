@@ -1,6 +1,6 @@
 class ContractData{
     getAddress(){
-        return "0x6c55dd1772f411fb2fd4345cbf97fdf66a9a9016";
+        return "0x6af172ff65a7f7c001d31f4172d73ac54b0e0cc0";
     }
     getRecommendedProvider(){
         return "ws";
