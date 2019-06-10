@@ -7,7 +7,6 @@ const schemaAttr =
 	fromAddress:String,
 	toAddress:String,
 	value:String,
-	blockHash:String,
 	blockNumber:Number,
 	txHash:String,
     reported: Number

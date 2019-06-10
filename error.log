@@ -1,2 +1,32 @@
 [31merror[39m: [31mEthService:Connection refused or URL couldn't be resolved: http://95.217.45.242:5545[39m {"data":"{}","timestamp":"2019-06-10 19:12:10"}
 [31merror[39m: [31mEthProxy:Connection refused or URL couldn't be resolved: http://95.217.45.242:5545[39m {"data":"{}","timestamp":"2019-06-10 19:12:10"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:05"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:05"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:05"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:05"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:05"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:05"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:06"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:06"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:06"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:06"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:06"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:06"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:07"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:07"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:07"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:07"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:07"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:07"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:08"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:08"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:08"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:08"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:08"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:08"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:09"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:09"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:09"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:09"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:09"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:09"}

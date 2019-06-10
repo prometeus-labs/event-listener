@@ -14,13 +14,12 @@ class StoredEventManager{
     init(){
         this.StoredEthEvent = this.db.getModel(StoredEthEvent);
     }
-    addEvent(_topic='Transfer',_fromAddress,_toAddress,_value,_blockHash,_blockNumber,_txHash){
+    addEvent(_topic='Transfer',_fromAddress,_toAddress,_value,_blockNumber,_txHash){
         return new Promise(async(resolve,reject)=>{
             try{
                 this.validator.validateEthAddress(_fromAddress);
                 this.validator.validateEthAddress(_toAddress);
                 this.validator.validateNumber(_value);
-                this.validator.validateString(_blockHash);
                 this.validator.validateString(_txHash);
                 this.validator.validateNumber(_blockNumber);
                 //let assetsMaps = (new this.StoredEthEvent().getAssetsMaps());
@@ -29,7 +28,6 @@ class StoredEventManager{
                     fromAddress:_fromAddress,
                     toAddress:_toAddress,
                     value:_value,
-                    blockHash:_blockHash,
                     blockNumber:_blockNumber,
                     txHash:_txHash,
                     reported: 0

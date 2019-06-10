@@ -3,7 +3,7 @@ class ContractData{
         return "0x6af172ff65a7f7c001d31f4172d73ac54b0e0cc0";
     }
     getRecommendedProvider(){
-        return "ws";
+        return "http";
     }
     getAbi(){
         return [

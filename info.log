@@ -17,3 +17,41 @@
 [32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 19:15:30"}
 [32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 19:15:59"}
 [32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 19:16:00"}
+[32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 19:53:59"}
+[32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 19:53:59"}
+[32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 19:55:28"}
+[32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 19:55:28"}
+[32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 19:57:19"}
+[32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 19:57:19"}
+[32minfo[39m: [32mEthService:API IS INITIALIZED[39m {"timestamp":"2019-06-10 19:58:53"}
+[32minfo[39m: [32mEthProxy:API IS RUNNING[39m {"timestamp":"2019-06-10 19:58:54"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:05"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:05"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:05"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:05"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:05"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:05"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:06"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:06"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:06"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:06"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:06"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:06"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:07"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:07"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:07"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:07"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:07"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:07"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:08"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:08"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:08"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:08"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:08"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:08"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:09"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:09"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:09"}
+[31merror[39m: [31mHttpService:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"timestamp":"2019-06-10 19:59:09"}
+[31merror[39m: [31mEthProxy:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:09"}
+[31merror[39m: [31mERC20Service:Error: connect ECONNREFUSED 127.0.0.1:8000[39m {"data":"{}","timestamp":"2019-06-10 19:59:09"}
