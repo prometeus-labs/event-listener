@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+    proxy_api:
+        image: event-listener
+        ports:
+            - "3000:3000"
+        depends_on:
+            - proxy-mongo
+        restart: on-failure
+    proxy-mongo:
+        image: mongo:4.0.5
+        container_name: proxy-mongo
+        ports:
+            - 47017:27017
+        volumes:
+            - /data/proxy-volumes/data:/data/db

@@ -6,9 +6,9 @@ if(!process.env.NODE_ENV){
 process.env.baseDir = '.';
 process.env.LAST_BLOCK_FILE='./blocknumber.txt';
 process.env.SERVER = "http://127.0.0.1";
-process.env.node_address_http='http://95.217.45.242:5545';
-process.env.node_address_ws='ws://95.217.45.242:6545';
-process.env.MONGODB_URL ='127.0.0.1:47017';
+process.env.node_address_http='http://172.17.0.1:5545';
+process.env.node_address_ws='ws://172.17.0.1:6545';
+process.env.MONGODB_URL ='172.17.0.1:47017';
 process.env.MONGODB_DB = 'mydb';
 process.env.logDir = '.';
 process.env.fileMode='0666';
