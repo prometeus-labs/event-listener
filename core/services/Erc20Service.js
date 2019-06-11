@@ -4,6 +4,9 @@ const SUBJECT = 'ERC20Service';
 const Erc20Lib = require('core/contracts/ethereum/token/ContractLib');
 const WeiConverter = require('core/helpers/WeiConverter');
 const BlockNumberCacher = require('core/cachers/BlockNumberCacher')
+
+const TRANSFER_EVENT = 'Transfer';
+const LINK_EVENT = 'LinkValidatorOwner';
 class Erc20Service{
     constructor(app){
         this.app = app;
@@ -31,7 +34,7 @@ class Erc20Service{
     }
     run(){
         this.reportAllNewEvents();
-        this.listenToTransferEvents();
+        this.listenToEvents();
     }
     reportTransferEvent(_from,_to,_amount,_hash,_blockNumber){
         return new Promise(async(resolve,reject)=>{
@@ -58,19 +61,57 @@ class Erc20Service{
             }
         });
     }
+    reportLinkEvent(_owner,_validator,_price,_hash,_blockNumber){
+        return new Promise(async(resolve,reject)=>{
+            try{
+                _price = WeiConverter.formatToDecimals(_price);
+                this.validator.validateString(_owner);
+                this.validator.validateString(_validator);
+                this.validator.validateNumber(_price);
+                this.validator.validateString(_hash);
+                this.validator.validateNumber(_blockNumber);
+                var data = {"blockchain":{owner:_owner,validator:_validator,price:_price,blockNumber:_blockNumber,transactionHash:_hash}};
+                var url = this.app.urlMap.server+'/'+this.app.urlMap.link_event_post_url;
+                console.log('report data ',_owner,_validator,_price,_hash,_blockNumber);
+                var result = await this.app.postEventData(url,data);
+                if(result){
+                    this.logger.logEvent(SUBJECT,'Delivered Link Event Data',result);
+                    return resolve(true);
+                }else{
+                    return resolve(false);
+                    //throw new Error('Reporting error')
+                }
+            }catch(e){
+                return reject(e);
+            }
+        });
+    }
     reportAllNewEvents(){
         setInterval(async()=>{
             let events = await this.eventManager.getUnreportedEvents();
             for(let eventKey in events){
                 let event = events[eventKey];
                 try{
-                    let result = await this.reportTransferEvent(
-                        event.fromAddress,
-                        event.toAddress,
-                        event.value,
-                        event.txHash,
-                        event.blockNumber
-                    );
+                    let result = {};
+                    if(event.isTransfer()){
+                        result = await this.reportTransferEvent(
+                            event.fromAddress,
+                            event.toAddress,
+                            event.value,
+                            event.txHash,
+                            event.blockNumber
+                        );
+                    }else{
+                        if(event.isLink()){
+                            result = await this.reportLinkEvent(
+                                event.validatorAddress,
+                                event.ownerAddress,
+                                event.price,
+                                event.txHash,
+                                event.blockNumber
+                            );
+                        }
+                    }
                     if(result===true){
                         this.eventManager.setReported(event.txHash);
                     }
@@ -80,26 +121,52 @@ class Erc20Service{
                     this.logger.logError(SUBJECT,e);
                 }
             }
-        },1100);
+        },11000);
     }
-    listenToTransferEvents(){
+    listenToEvents(){
         console.log('listenToTransferEvents')
         setInterval(async()=>{
             let startBlock = parseInt(await this.blockNumberCacher.getLastCheckedBlock());
             if(!startBlock){
                 startBlock = 1;
             }
-            let events = await this.getAllTransferEvents(startBlock-1);
+            let transferEvents = await this.getAllTransferEvents(startBlock-1);
+            let linkEvents = await this.getAllLinkEvents(startBlock-1);
             let lastBlock = startBlock;
-            for(let eventKey in events){
-                let event = events[eventKey];
+
+            for(let eventKey in transferEvents){
+                let event = transferEvents[eventKey];
                 let blockNumber = event.blockNumber;
-                if(!await this.eventManager.eventStored(event.txHash)){
+                if(!await this.eventManager.eventStored(event.txHash,TRANSFER_EVENT)){
+                    let eventData = {
+                        fromAddress:event.fromAddress,
+                        toAddress:event.toAddress,
+                        value:event.value
+                    };
                     await this.eventManager.addEvent(
-                        'Transfer',
-                        event.fromAddress,
-                        event.toAddress,
-                        event.value,
+                        TRANSFER_EVENT,
+                        eventData,
+                        event.blockNumber,
+                        event.txHash
+                    );
+                }
+                if(blockNumber > lastBlock){
+                    lastBlock = blockNumber;
+                }
+            }
+
+            for(let eventKey in linkEvents){
+                let event = linkEvents[eventKey];
+                let blockNumber = event.blockNumber;
+                if(!await this.eventManager.eventStored(event.txHash,LINK_EVENT)){
+                    let eventData = {
+                        validatorAddress:event.validatorAddress,
+                        ownerAddress:event.ownerAddress,
+                        price:event.price,
+                    };
+                    await this.eventManager.addEvent(
+                        LINK_EVENT,
+                        eventData,
                         event.blockNumber,
                         event.txHash
                     );
@@ -120,7 +187,7 @@ class Erc20Service{
         return new Promise(async(resolve,reject)=>{
             try{
                 console.log('getting events')
-                this.erc20Lib.contract.getPastEvents('Transfer', {
+                this.erc20Lib.contract.getPastEvents(TRANSFER_EVENT, {
                     fromBlock: 0,
                     toBlock: 'latest'
                 })
@@ -135,6 +202,36 @@ class Erc20Service{
                                 fromAddress:eventData['from'],
                                 toAddress:eventData['to'],
                                 value:parseInt(eventData['value'])
+                            };
+                        }
+                        return resolve(result);
+                    });
+            }catch(e){
+                return reject(e);
+            }
+        })
+    }
+
+    getAllLinkEvents(fromBlock=0, toBlock='latest'){
+        console.log(fromBlock,toBlock);
+        return new Promise(async(resolve,reject)=>{
+            try{
+                console.log('getting events')
+                this.erc20Lib.contract.getPastEvents(LINK_EVENT, {
+                    fromBlock: 0,
+                    toBlock: 'latest'
+                })
+                    .then((events) => {
+                        var result = {};
+                        for(var eventNumber in events){
+                            var event = events[eventNumber];
+                            let eventData = event.returnValues;
+                            result[event.transactionHash]={
+                                txHash:event.transactionHash,
+                                blockNumber:parseInt(event.blockNumber),
+                                validatorAddress:eventData['validator'],
+                                ownerAddress:eventData['owner'],
+                                price:parseInt(eventData['price'])
                             };
                         }
                         return resolve(result);

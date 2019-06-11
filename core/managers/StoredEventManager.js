@@ -2,6 +2,10 @@
 const StoredEthEvent = require('../models/mongoModels/StoredEthEvent.js');
 const NotFoundException = 'notFound';
 
+const TYPE_TRANSFER = 'Transfer';
+const TYPE_LINK = 'Link';
+const TYPE_ALL = 'All';
+
 class StoredEventManager{
     constructor(app){
         // this.mSAuthService = app.mSAuthService;
@@ -14,20 +18,16 @@ class StoredEventManager{
     init(){
         this.StoredEthEvent = this.db.getModel(StoredEthEvent);
     }
-    addEvent(_topic='Transfer',_fromAddress,_toAddress,_value,_blockNumber,_txHash){
+    addEvent(_topic='Transfer',_eventData,_blockNumber,_txHash){
         return new Promise(async(resolve,reject)=>{
             try{
-                this.validator.validateEthAddress(_fromAddress);
-                this.validator.validateEthAddress(_toAddress);
-                this.validator.validateNumber(_value);
+                this.validator.validateObject(_eventData);
                 this.validator.validateString(_txHash);
                 this.validator.validateNumber(_blockNumber);
                 //let assetsMaps = (new this.StoredEthEvent().getAssetsMaps());
                 var newEvent = new this.StoredEthEvent({
                     topic:_topic,
-                    fromAddress:_fromAddress,
-                    toAddress:_toAddress,
-                    value:_value,
+                    eventData:_eventData,
                     blockNumber:_blockNumber,
                     txHash:_txHash,
                     reported: 0
@@ -43,22 +43,22 @@ class StoredEventManager{
             }
         });
     };
-    getEvent(txHash){
+    getEvent(txHash,type='Transfer'){
         return new Promise(async(resolve,reject)=>{
             try{
                 this.validator.validateString(txHash);
-                var result = await this.StoredEthEvent.findOne({ txHash: txHash });
+                var result = await this.StoredEthEvent.findOne({ txHash: txHash},{type:type});
                 return resolve(result);
             }catch(e){
                 return reject(e)
             }
         });
     };
-    eventStored(txHash){
+    eventStored(txHash,type='Transfer'){
         return new Promise(async(resolve,reject)=>{
             try{
                 this.validator.validateString(txHash);
-                var event = await this.getEvent(txHash);
+                var event = await this.getEvent(txHash,type);
                 if(event){
                     return resolve(true);                    
                 }else{
@@ -69,10 +69,10 @@ class StoredEventManager{
             }
         })
     }
-    getAllEvents(){
+    getAllEvents(type='Transfer'){
         return new Promise(async(resolve,reject)=>{
             try{
-                var result = await this.StoredEthEvent.find({});
+                var result = await this.StoredEthEvent.find({type:type});
                 return resolve(result);
             }catch(e){
                 return reject(e)
@@ -80,10 +80,17 @@ class StoredEventManager{
 
         });
     };
-    getUnreportedEvents(){
+    getUnreportedEvents(type='All'){
         return new Promise(async(resolve,reject)=>{
             try{
-                var result = await this.StoredEthEvent.find({reported:0});
+                let filter = {reported:0};
+                if(type===TYPE_ALL){
+                    filter[type]=type;
+                }else{
+                    filter[type]=type;
+                }
+
+                var result = await this.StoredEthEvent.find(filter);
                 return resolve(result);
             }catch(e){
                 return reject(e)
@@ -91,10 +98,16 @@ class StoredEventManager{
 
         });
     };
-    getReportedEvents(){
+    getReportedEvents(type='All'){
         return new Promise(async(resolve,reject)=>{
             try{
-                var result = await this.StoredEthEvent.find({reported:1});
+                let filter = {reported:1};
+                if(type===TYPE_ALL){
+                    filter[type]=type;
+                }else{
+                    filter[type]=type;
+                }
+                var result = await this.StoredEthEvent.find(filter);
                 return resolve(result);
             }catch(e){
                 return reject(e)
@@ -102,11 +115,11 @@ class StoredEventManager{
 
         });
     };
-    setReported(txHash){
+    setReported(txHash,type='Transfer'){
         return new Promise(async(resolve,reject)=>{
             try{
                 this.validator.validateString(txHash);
-                var result = await this.StoredEthEvent.findOneAndUpdate({txHash: txHash},{reported:1},{new:true});
+                var result = await this.StoredEthEvent.findOneAndUpdate({txHash: txHash},{type:type},{reported:1},{new:true});
                 return resolve(result);
             }catch(e){
                 return reject(e)
@@ -114,11 +127,11 @@ class StoredEventManager{
         });
     }
 
-    deleteEvent(txHash){
+    deleteEvent(txHash,type='Transfer'){
         return new Promise(async(resolve,reject)=>{
             try{
                 this.validator.validateString(txHash);
-                var result = await this.StoredEthEvent.deleteOne({txHash: txHash});
+                var result = await this.StoredEthEvent.deleteOne({txHash: txHash},{type:type});
                 return resolve(result);
             }catch(e){
                 return reject(e)
