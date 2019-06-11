@@ -104,8 +104,8 @@ class Erc20Service{
                     }else{
                         if(event.isLink()){
                             result = await this.reportLinkEvent(
-                                event.validatorAddress,
                                 event.ownerAddress,
+                                event.validatorAddress,
                                 event.price,
                                 event.txHash,
                                 event.blockNumber
