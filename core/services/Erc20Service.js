@@ -39,12 +39,12 @@ class Erc20Service{
         let object = {
             "fromAddress":"0x82A7FC1C127A04Bf1e261d71055c07eD5AD28855",
             "toAddress":"0xb647b1927dd48eCD1489d268357a4fbF58BfeF89",
-            "value":1e-12,
+            "value":11111,
             "blockNumber":41711,
             "transactionHash":"0xbfc70947b07460412eb2dc97fb14883ba78227cd2ad6dd994f6d266331d42cb8"
         };
 
-        this.reportTransferEvent(object.fromAddress,object.toAddress,object.value,object.blockNumber,object.transactionHash);
+        this.reportTransferEvent(object.fromAddress,object.toAddress,object.value,object.transactionHash,object.blockNumber);
 
     }
     reportTransferEvent(_from,_to,_amount,_hash,_blockNumber){
@@ -56,9 +56,11 @@ class Erc20Service{
                 this.validator.validateNumber(_amount);
                 this.validator.validateString(_hash);
                 this.validator.validateNumber(_blockNumber);
-                var data = {"blockchain":{fromAddress:_from,toAddress:_to,value:_amount,blockNumber:_blockNumber,transactionHash:_hash}};
+
+                let data = {"sender":{"address":_from}, "receiver":{"address":_to}, "tx_hash":_hash, "volume":_amount};
+
                 var url = this.app.urlMap.server+'/'+this.app.urlMap.transfer_event_post_url;
-                //console.log('report data ',_from,_to,_amount,_hash,_blockNumber);
+
                 var result = await this.app.postEventData(url,data);
                 if(result){
                     this.logger.logEvent(SUBJECT,'Delivered Transfer Event Data',result);
