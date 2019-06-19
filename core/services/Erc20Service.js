@@ -33,18 +33,8 @@ class Erc20Service{
         })
     }
     run(){
-        //this.reportAllNewEvents();
-        //this.listenToEvents();
-        console.log('disabled Erc20Service RUN')
-        let object = {
-            "fromAddress":"0x82A7FC1C127A04Bf1e261d71055c07eD5AD28855",
-            "toAddress":"0xb647b1927dd48eCD1489d268357a4fbF58BfeF89",
-            "value":11111,
-            "blockNumber":41711,
-            "transactionHash":"0xbfc70947b07460412eb2dc97fb14883ba78227cd2ad6dd994f6d266331d42cb8"
-        };
-
-        this.reportTransferEvent(object.fromAddress,object.toAddress,object.value,object.transactionHash,object.blockNumber);
+        this.reportAllNewEvents();
+        this.listenToEvents();
 
     }
     reportTransferEvent(_from,_to,_amount,_hash,_blockNumber){
