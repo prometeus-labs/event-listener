@@ -68,9 +68,11 @@ class HttpService{
                 headers: headers,
                 json:true
             };
+            console.log(options)
             requestPromise(options).then((res)=>{
+                res = res || true;
                 return resolve(res);
-            }).catch(async (err) => {
+            }).catch((err) => {
                 this.logger.logError('HttpService',err.message);
                 return reject(err)
             });

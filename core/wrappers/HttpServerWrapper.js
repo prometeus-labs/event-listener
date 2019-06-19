@@ -40,6 +40,8 @@ class HttpServerWrapper{
                     if(await this.apiAuthService.checkAuthorization(request)){
                         return resolve(request.body);
                     }
+                }else{
+                    return resolve(request.body);                    
                 }
             }catch(e){
                 return reject(e);

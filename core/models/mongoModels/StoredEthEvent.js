@@ -35,10 +35,10 @@ function StoredEthEvent(){
 
 let methods = {
 	isTransfer(){
-		return this.protocol===TYPE_TRANSFER;
+		return this.topic===TYPE_TRANSFER;
 	},
 	isLink(){
-		return this.protocol===TYPE_LINK;
+		return this.topic===TYPE_LINK;
 	},
 	getEventData:function(){
 		return this.eventData;

@@ -84,9 +84,7 @@ class StoredEventManager{
         return new Promise(async(resolve,reject)=>{
             try{
                 let filter = {reported:0};
-                if(type===TYPE_ALL){
-                    filter[type]=type;
-                }else{
+                if(type!==TYPE_ALL){
                     filter[type]=type;
                 }
 
